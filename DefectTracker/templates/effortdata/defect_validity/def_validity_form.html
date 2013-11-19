@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{%block title %}
+<title>
+	Add Risk 		    
+</title>
+{% endblock %}
+
+{% block extracss %}
+	<link href="/site_media/css/riskmanagement.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet/less" src="/site_media/twitter_bootstrap/datepicker/less/datepicker.less" />
+	<link href="/site_media/twitter_bootstrap/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+	<script src="/site_media/twitter_bootstrap/datepicker/js/bootstrap-datepicker.js"></script>
+	
+	<script type="text/javascript" >
+		$('#datepicker').datepicker();
+	</script>
+{% endblock extracss %}
+
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="hero-unit">
+			<div class="row-fluid">
+				<div class="span8 form">
+					<p>Add Effort</p>
+					<form method="POST" action="">
+						{% csrf_token %}
+							{% if form.non_field_errors %}
+								<font color="red" >{{ form.non_field_errors }}</font>
+							{% endif %}
+							{% for field in form %} 
+								{% if field.errors %}
+									<font color="red" >{{field.label_tag}} : {{ field.errors }}</font>
+								{% endif %}
+							{% endfor %}
+							<div class="span2">
+								<label style="display:block" for="id_team">{{form.release.label_tag}} </label>
+							</div>
+    						<div> {{form.release}}</div>
+    						<br>
+    						
+    						<div class="span2">
+								<label style="display:block" for="id_team">{{form.releasephase.label_tag}} </label>
+							</div>
+    						<div> {{form.releasephase}}</div>
+    						<br>
+    						
+    						<div class="span2">
+									<label style="display:block" for="id_team">{{form.team.label_tag}} </label>
+							</div>
+    						<div> {{form.team}}</div>
+							<br>
+							
+    						
+							<div class="span2">{{form.valid_date.label_tag}} </div>
+							<div> <input type="text" id="id_valid_date" name="valid_date" value="{{form.valid_date.value}}" /> </div>
+	   					<br>
+	   					
+	   					<div class="span2" style="background-color: #edf3fe;">
+									<label style="display:block" for="id_team">{{form.total_defects.label_tag}} </label>
+							</div>
+    						<div> {{form.total_defects}}</div>
+    						<br>
+    						<div class="span2" style="background-color: #edf3fe;">
+									<label style="display:block" for="id_team">{{form.dup_defects.label_tag}} </label>
+							</div>
+    						<div> {{form.dup_defects}}</div>							
+							<br>
+							<div class="span2" style="background-color: #edf3fe;">
+									<label style="display:block" for="id_team">{{form.new_defects.label_tag}} </label>
+							</div>
+    						<div> {{form.new_defects}}</div>
+    						<br>
+    						<div class="span2" style="background-color: #edf3fe;">
+									<label style="display:block" for="id_team">{{form.fixed_defects.label_tag}} </label>
+							</div>
+    						<div> {{form.fixed_defects}}</div>							
+							<br>
+							<div class="span2" style="background-color: #edf3fe;">
+									<label style="display:block" for="id_team">{{form.cosmic_defects.label_tag}} </label>
+							</div>
+    						<div> {{form.cosmic_defects}}</div>
+    						<br>
+    						<div class="span2" style="background-color: #edf3fe;">
+									<label style="display:block" for="id_team">{{form.obsol_defects.label_tag}} </label>
+							</div>
+    						<div> {{form.obsol_defects}}</div>	
+    						<br>    						
+    												
+    									
+    						
+    						
+						
+						
+							
+						
+							
+							
+						
+				 		<div align="center"> 
+							  	<input class="btn btn-primary btn-large" align="center" value = "submit" type="submit"/>
+	   				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+<script type="text/javascript" >
+		$('#id_valid_date').datepicker({
+    	format: 'mm-dd-yyyy'
+		});
+	</script>
+
+{% endblock content %}
+

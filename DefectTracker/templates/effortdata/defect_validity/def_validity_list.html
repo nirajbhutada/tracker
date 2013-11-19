@@ -1,0 +1,40 @@
+<div class="row-fluid" style="background-color:#0067cc;">
+	<div class="span2">Team</div>	
+	<div class="span2">Total Defects</div>
+	<div class="span2">Duplicate Defects</div>
+	<div class="span2">New Defects</div>
+	<div class="span2">Date</div>
+	<div class="span2">Action</div>
+</div>
+
+{% for e in defvalObj %}
+<div class="row-fluid {% cycle 'light' 'dark' %}">
+	<div class="span2">{{e.team}}</div>
+	<div class="span2">{{e.total_defects}}</div>
+	<div class="span2">{{e.dup_defects}}</div>
+	<div class="span2">{{e.new_defects}}</div>
+	<div class="span2">{{e.valid_date}}</div>
+	<div class="span2">
+		<a class="btn btn-primary btn-small" href="/report/defect_validity/edit/{{e.id}}/" >Edit </a>
+		{% if managerflag %}
+			<a class="btn btn-primary btn-small" href="/report/defect_validity/delete/{{e.id}}/" >Delete </a>
+		{% endif %}
+	</div>
+</div>
+{% endfor %}
+	
+
+<div class="pagination">
+  <ul>
+  	{% for page_url in pages %}
+		{% ifequal offset forloop.counter %}
+			<li class="active">
+					<a href="/report/?{{page_url}}">{{forloop.counter}}</a>
+			</li>
+    	{% else %}
+    		<li><a href="/report/?{{page_url}}">{{forloop.counter}}</a></li>
+    	{% endifequal %}
+	{% endfor %}    
+  </ul>
+</div>
+

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{%block title %}
+<title>
+	Add Risk 		    
+</title>
+{% endblock %}
+
+{% block extracss %}
+	<link href="/site_media/css/riskmanagement.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet/less" src="/site_media/twitter_bootstrap/datepicker/less/datepicker.less" />
+	<link href="/site_media/twitter_bootstrap/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+	<script src="/site_media/twitter_bootstrap/datepicker/js/bootstrap-datepicker.js"></script>
+	
+	<script type="text/javascript" >
+		$('#datepicker').datepicker();
+	</script>
+{% endblock extracss %}
+
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="hero-unit">
+			<div class="row-fluid">
+				<div class="span4">
+					<p>Add Effort</p>
+					<form method="POST" action="">
+						{% csrf_token %}
+						{% for field in form %}
+						<div class="fieldWrapper">
+    						<label style="display:block" for="id_team">{{field.label_tag}} </label>
+			 				<div class="fieldBox">
+		   					 
+		   					{{field}}
+							</div>
+						</div>
+					 	
+					 	<br>
+						<div class="fieldWrapper">
+						<label style="display:block" for="id_impact">{{form.identificationdate.label_tag}} </label>
+							<!-- input type="text" value="02/16/12" data-date-format="mm/dd/yy" id="datepicker" -->
+							<div class="input-append date" id="datepicker" data-date="2012-02-12" data-date-format="yyyy-mm-dd">
+    							<input size="16" name="identificationdate" id="id_identificationdate"  type="text" value="2012-02-12" />
+    							<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+	   				</div>
+				  		
+				  		<div class="riskdetail" >
+	   	 				<label style="display:block" for="id_riskdetail">{{form.riskdetail.label_tag}} </label>
+	    					<div class="fieldBox">
+		      				<div fest:tooltip="Enter the Risk Details">{{ form.riskdetail }}</div>
+	   	 				</div>
+	  					</div>
+	  					<div class="impact" >
+	   	 				<label style="display:block" for="id_impact">{{form.impact.label_tag}} </label>
+	    					<div class="fieldBox">
+		      				<div fest:tooltip="Impact">{{ form.impact }}</div>
+	   	 				</div>
+	  					</div>
+	  					
+	  					<div class="category" >
+	   	 				<label style="display:block" for="id_category">{{form.category.label_tag}} </label>
+	    					<div class="fieldBox">
+		      				<div fest:tooltip="Enter the Category">{{ form.category }}</div>
+	   	 				</div>
+	  					</div>
+	  					<div class="mitigationplan" >
+	   	 				<label style="display:block" for="id_mitigationplan">{{form.mitigationplan.label_tag}} </label>
+	    					<div class="fieldBox">
+		      				<div fest:tooltip="Enter the Risk Details">{{ form.mitigationplan }}</div>
+	   	 				</div>
+	  					</div>
+	  					<div class="contigencyplan" >
+	   	 				<label style="display:block" for="id_impact">{{form.contigencyplan.label_tag}} </label>
+	    					<div class="fieldBox">
+		      				<div fest:tooltip="Impact">{{ form.contigencyplan }}</div>
+	   	 				</div>
+	   				</div>
+				  <input value = "submit" type="submit"/>
+			</form>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+{% endblock content %}
+

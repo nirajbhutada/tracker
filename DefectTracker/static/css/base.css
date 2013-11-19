@@ -1,0 +1,15 @@
+.container { 
+ 	width: 85%;
+	margin-top: 4%;	
+	background-color: #5DC8CD; 
+ }
+ .navbar {
+	 width: 85%;
+	 margin-left: 7.5%;
+	 background-color: #3f3f3f;
+ }
+ 
+
+.container-fluid { 
+	background-color: #3f3f3f; 
+ }

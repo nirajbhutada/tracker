@@ -1,0 +1,62 @@
+.container { 
+ 	width: 85%;
+	margin-top: 4%;	
+	background-color: #ffffff; 
+ }
+
+.container-fluid { 
+		background-color: #e8e8e8; 
+ }
+ 
+.hero-unit{
+	width: 79%;
+	margin-bottom: 20%;
+	margin-top: 5%;	
+	margin-left: 6%;
+ background-color: #ffffff; 
+	}
+
+.row-fluid .span{
+	width: 7%;
+	margin-left: 2%;
+	text-align: center;
+	
+}
+.row-fluid .span4 {
+	width: 30%;
+	margin-left: 2%;
+	text-align: center;
+}
+
+.light{
+    background-color: #edf3fe;
+}
+
+.dark{
+    background-color: ffffff;
+}
+
+
+.col
+{
+	outline-width: thin;
+	outline-style: solid;
+	outline-color: #333333;
+	outline-offset: -2px;
+	padding-top: 2px;
+	
+}
+
+.fieldWrapper{
+	width: 85%;
+	 background-color: #edf3fe;
+}
+.span2 label
+{
+ background-color: #edf3fe;
+	}
+.span8 form{
+ 
+	}
+	
+	

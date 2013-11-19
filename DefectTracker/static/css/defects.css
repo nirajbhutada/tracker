@@ -1,0 +1,46 @@
+.operation_title {
+	width: 650px;
+	}
+	
+.filters {
+	width: 650px;
+	}
+
+		
+select {
+    background-color: #FFFFFF;
+    cursor: pointer;
+    font-size: 11px;
+    height: 19px;
+    min-width: 130px;
+    opacity: 10;
+    position: relative;
+    z-index: 5;
+}	
+
+.filter_drops { 
+	background-color:#FEFEFE;
+	background:url("/site_media/indeev3/img/mainsp.png") repeat-x scroll -654px -10px white;
+	border: 1px solid;
+	border-color:  #8E8E8E #E1E1E1 #E1E1E1 #8E8E8E;
+	float:left;
+	height:22px;
+	display:inline;
+	width:130px;
+	}
+ 	
+.filter_drops span {
+	font-size:11px;
+	height:19px;
+	line-height:22px;
+	margin-left:5px;
+	position:absolute;
+	z-index:2;
+	}
+
+
+
+
+
+
+	

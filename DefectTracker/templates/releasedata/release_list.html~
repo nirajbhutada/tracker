@@ -1,0 +1,19 @@
+<div class="row-fluid" style="background-color:#0067cc;">	
+	<div class="span4">Release Name</div>
+	<div class="span4">Action</div>
+</div>
+
+
+{% for r in releases %}
+<div class="row-fluid {% cycle 'light' 'dark' %}">
+	<div class="span4">{{r.relname}}</div>
+	<div class="span4">
+		<a class="btn btn-primary btn-small" href="/release/edit/{{r.id}}/" >Edit </a>
+		<!-- a class="btn btn-primary btn-small" href="" >Delete </a-->
+	</div>
+</div>
+{% endfor %}
+	
+
+
+

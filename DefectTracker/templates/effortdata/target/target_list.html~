@@ -1,0 +1,80 @@
+<table id="targetlist" cellpadding="0" cellspacing="0" border="0" class="display" >
+	<thead>
+		<tr>
+			<th>User</th>
+		   <th> Team Name</th>
+			<th>Release Name</th>
+			<th>Release Phase</th>
+		   <th> Manual TC Execution Target</th>
+		   <th> Auto TC Execution Target</th>
+		   <th> PR's Verified Target</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for e in targetlist %}
+		<tr>
+			<td>{{e.release.relname}}</td>
+			<td>{{e.release_phase.release_phase}}</td>
+    		<td>{{e.emp.first_name}} {{e.emp.last_name}}</td>
+    		<td>{{e.team.teamname}}</td>
+    		<td>{{e.manualtcexectar}}</td>
+    		<td>{{e.autotcexectar}}</td>
+    		<td>{{e.prsveritar}}</td>
+			<td>
+				<a class="btn btn-primary btn-small" href="/report/target/edit/{{e.id}}/" >Edit </a>
+				{% if managerflag %}
+					<a class="btn btn-primary btn-small" href="/report/target/delete/{{e.id}}/" >Delete </a>
+				{% endif %}
+			</td>
+		</tr>	
+		{% endfor %}
+	</tbody>
+</table>
+<!-- 
+<div class="row-fluid" style="background-color:#0067cc;">	
+	<div class="span">Release Name</div>
+	<div class="span">Release Phase</div>
+	<div class="span2">User</div>
+    <div class="span"> Team Name</div>
+    <div class="span"> Manual TC Execution Target</div>
+    <div class="span"> Auto TC Execution Target</div>
+    <div class="span"> PR's Verified Target</div>
+	<div class="span2">Action</div>
+	
+</div>
+
+{% for e in targetlist %}
+<div class="row-fluid {% cycle 'light' 'dark' %}">
+	<div class="span">{{e.release.relname}}</div>
+	<div class="span">{{e.release_phase.release_phase}}</div>
+    <div class="span2">{{e.emp.first_name}} {{e.emp.last_name}}</div>
+    <div class="span">{{e.team.teamname}}</div>
+    <div class="span">{{e.manualtcexectar}}</div>
+    <div class="span">{{e.autotcexectar}}</div>
+    <div class="span">{{e.prsveritar}}</div>
+	
+	<div class="span2">
+		<a class="btn btn-primary btn-small" href="/report/target/edit/{{e.id}}/" >Edit </a>
+		{% if managerflag %}
+			<a class="btn btn-primary btn-small" href="/report/target/delete/{{e.id}}/" >Delete </a>
+		{% endif %}
+	</div>	
+</div>
+{% endfor %}
+	
+
+<div class="pagination">
+  <ul>
+  	{% for page_url in pages %}
+		{% ifequal offset forloop.counter %}
+			<li class="active">
+					<a href="/report/target/?{{page_url}}">{{forloop.counter}}</a>
+			</li>
+    	{% else %}
+    		<li><a href="/report/target/?{{page_url}}">{{forloop.counter}}</a></li>
+    	{% endifequal %}
+	{% endfor %}    
+  </ul>
+</div>
+-->

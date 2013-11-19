@@ -1,0 +1,32 @@
+<div class="row-fluid" style="background-color:#0067cc;">	
+	<div class="span4">Date</div>
+	<div class="span4">priority</div>
+	<div class="span4">Action</div>
+</div>
+
+{% for e in defvalObj %}
+<div class="row-fluid {% cycle 'light' 'dark' %}">
+	<div class="span4">{{e}}</div>
+	<div class="span4">{{e}}</div>
+	<div class="span4">
+		<a class="btn btn-primary btn-small" href="" >Edit </a>
+		<a class="btn btn-primary btn-small" href="" >Delete </a>
+	</div>
+</div>
+{% endfor %}
+	
+
+<div class="pagination">
+  <ul>
+  	{% for page_url in pages %}
+		{% ifequal offset forloop.counter %}
+			<li class="active">
+					<a href="/report/?{{page_url}}">{{forloop.counter}}</a>
+			</li>
+    	{% else %}
+    		<li><a href="/report/?{{page_url}}">{{forloop.counter}}</a></li>
+    	{% endifequal %}
+	{% endfor %}    
+  </ul>
+</div>
+

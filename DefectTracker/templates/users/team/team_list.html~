@@ -1,0 +1,33 @@
+<div class="row-fluid" style="background-color:#0067cc;">	
+	<div class="span4"><b><font color="white">Lead Name</font></b></div>
+	<div class="span4"><b><font color="white">Team Name</font></b></div>
+	<div class="span4"><b><font color="white">Action</font></b></div>
+</div>
+
+
+{% for t in teams %}
+<div class="row-fluid {% cycle 'dark' 'light' %}">
+	<div class="span4">{{t.lead.first_name}} {{t.lead.last_name}}</div>
+	<div class="span4">{{t.teamname}}</div>
+	<div class="span4">
+		<a class="btn btn-primary btn-small" href="/team/add/?team_id={{t.id}}" >Edit </a>
+		<!-- a class="btn btn-primary btn-small" href="" >Delete </a-->
+	</div>
+</div>
+{% endfor %}
+	
+
+<div class="pagination">
+  <ul>
+  	{% for page_url in pages %}
+		{% ifequal offset forloop.counter %}
+			<li class="active">
+					<a href="{% url team_index %}?{{page_url}}">{{forloop.counter}}</a>
+			</li>
+    	{% else %}
+    		<li><a href="{% url team_index %}?{{page_url}}">{{forloop.counter}}</a></li>
+    	{% endifequal %}
+	{% endfor %}    
+  </ul>
+</div>
+

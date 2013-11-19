@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{%block title %}
+<title>
+	Add Risk 		    
+</title>
+{% endblock %}
+
+{% block extracss %}
+	<link href="/site_media/css/riskmanagement.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet/less" src="/site_media/twitter_bootstrap/datepicker/less/datepicker.less" />
+	<link href="/site_media/twitter_bootstrap/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+	<script src="/site_media/twitter_bootstrap/datepicker/js/bootstrap-datepicker.js"></script>
+	
+	<script type="text/javascript" >
+		$('#datepicker').datepicker();
+	</script>
+{% endblock extracss %}
+
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="hero-unit">
+			<div class="row-fluid">
+				<div class="span8 form">
+					<p>Add Effort</p>
+					<form method="POST" action="">
+						{% csrf_token %}
+							<div class="span2">
+								<label style="display:block" for="id_team">{{form.release.label_tag}} </label>
+							</div>
+    						<div> {{form.release}}</div>
+    						<br>
+    						
+    						<div class="span2">
+									<label style="display:block" for="id_team">{{form.team.label_tag}} </label>
+							</div>
+    						<div> {{form.team}}</div>
+							<br>
+							
+    						
+							<div class="span2">{{form.effort_date.label_tag}} </div>
+							<div class="input-append date" id="datepicker" data-date="2012-02-12" data-date-format="yyyy-mm-dd">
+	    							<input name="valid_date" id="id_valid_date"  type="text" value="2012-02-12" />
+	    							<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+	   					<br>
+	   					
+	   					<div class="span2" style="background-color: #edf3fe;">
+									<label style="display:block" for="id_team">{{form.total_defects.label_tag}} </label>
+							</div>
+    						<div> {{form.total_defects}}</div>
+    						<br>
+    						<div class="span2" style="background-color: #edf3fe;">
+									<label style="display:block" for="id_team">{{form.dup_defects.label_tag}} </label>
+							</div>
+    						<div> {{form.dup_defects}}</div>							
+							<br>
+							<div class="span2" style="background-color: #edf3fe;">
+									<label style="display:block" for="id_team">{{form.new_defects.label_tag}} </label>
+							</div>
+    						<div> {{form.new_defects}}</div>
+    						<br>
+    						<div class="span2" style="background-color: #edf3fe;">
+									<label style="display:block" for="id_team">{{form.fixed_defects.label_tag}} </label>
+							</div>
+    						<div> {{form.fixed_defects}}</div>							
+							<br>
+							<div class="span2" style="background-color: #edf3fe;">
+									<label style="display:block" for="id_team">{{form.cosmic_defects.label_tag}} </label>
+							</div>
+    						<div> {{form.osmic_defects}}</div>
+    						<br>
+    						<div class="span2" style="background-color: #edf3fe;">
+									<label style="display:block" for="id_team">{{form.obsol_defects.label_tag}} </label>
+							</div>
+    						<div> {{form.obsol_defects}}</div>	
+    						<br>    						
+    												
+    									
+    						
+    						
+						
+						
+							
+						
+							
+							
+						
+				 		<div align="center"> 
+							  	<input class="btn btn-primary btn-large" align="center" value = "submit" type="submit"/>
+	   				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+{% endblock content %}
+

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{%block title %}
+<title>
+	Teams 		    
+</title>
+{% endblock %}
+{% block extracss %}
+	<link href="/site_media/css/riskmanagement.css" rel="stylesheet" type="text/css" />
+{% endblock extracss %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="hero-unit">
+			<p>List of Report </p>
+			{% include "effortdata/defect_validity/def_validity_list.html" %} 
+		</div>
+	</div>
+</div>
+{% endblock content %}
+

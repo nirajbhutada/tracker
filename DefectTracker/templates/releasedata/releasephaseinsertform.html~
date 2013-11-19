@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{%block title %}
+<title>
+	Add Release Info 		    
+</title>
+{% endblock %}
+{% block extracss %}
+	<link href="/site_media/css/riskmanagement.css" rel="stylesheet" type="text/css" />
+{% endblock extracss %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="hero-unit">
+			<div class="row-fluid">
+				<div class="span8 form">
+					<p>Add Release Details</p>
+					<form method="POST" action="#">
+						{% csrf_token %}
+						
+						<div class="span2">
+							{{form.release_phase.label_tag}}
+						</div> 
+						<div> {{ form.release_phase }}</div>
+	  					<div align="center"> 
+							  	<input class="btn btn-primary btn-large" align="center" value = "submit" type="submit"/>
+	   				  </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}
+

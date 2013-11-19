@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{%block title %}
+<title>
+	Add Team 		    
+</title>
+{% endblock %}
+{% block extracss %}
+	<link href="/site_media/css/riskmanagement.css" rel="stylesheet" type="text/css" />
+{% endblock extracss %}
+
+{% block nav %}
+		<div class="navbar navbar-fixed-top">
+		<img src="/site_media/images/symphony.png" alt="logo" /> GOC Reporting Tool
+      <div class="navbar-inner">
+        <div class="container-fluid1">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          
+          <div class="btn-group pull-right">
+            	<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              		<i class="icon-user"></i> {{username}}
+              		<span class="caret"></span>
+            	</a>
+            	<ul class="dropdown-menu">
+              		<li><a href="/profile/">Profile</a></li>
+              		<li class="divider"></li>
+              		<li><a href="/pwreset/password_change/">Change Password</a></li>
+	       			<li class="divider"></li>
+              		<li><a href="/logout/">Sign Out</a></li>
+            	</ul>
+          </div>
+          <div class="nav-collapse">
+            <ul class="nav nav-pills">
+					{% block navbar %}
+	              	<li ><a href="/">Home</a></li>	              	
+					  	<li class="dropdown active" id="menu3">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								Report
+      						<b class="caret"></b>
+    						</a>
+    						<ul class="dropdown-menu">
+    							<li><a href="/report/">List</a></li>
+      						<li><a href="/report/add/">Add</a></li>
+    						</ul>	
+						</li>
+						
+						<li class="dropdown" id="menu3">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								Target
+      						<b class="caret"></b>
+    						</a>
+    						<ul class="dropdown-menu">
+    							<li><a href="/report/target/">List</a></li>
+      						<li><a href="/report/target/add/">Add</a></li>
+    						</ul>	
+						</li>
+						{% if managerflag %}
+						<li class="dropdown" id="menu1">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      						Release Mgmt
+      						<b class="caret"></b>
+    						</a>
+    						<ul class="dropdown-menu">
+	    						<li><a href="/release/">Release List</a></li>
+      						<li><a href="/release/add/">Add Release</a></li>
+      						<li><a href="/release/phase/">Phases List</a></li>
+      						<li><a href="/release/phase/add/">Add Phase</a></li>
+					 		</ul>	
+						</li>
+						<li class="dropdown" id="menu2">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      						Risk Mgmt
+      						<b class="caret"></b>
+    						</a>
+    						<ul class="dropdown-menu">
+    							<li><a href="/riskmanagement/">List</a></li>
+      						<li><a href="/riskmanagement/add/">Add</a></li>
+					    	</ul>	
+						</li>
+						<li class="dropdown" id="menu3">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								Defect Validity
+      						<b class="caret"></b>
+    						</a>
+    						<ul class="dropdown-menu">
+    							<li><a href="/report/defect_validity/">List</a></li>
+      						<li><a href="/report/defect_validity/add/">Add</a></li>
+    						</ul>	
+						</li>
+						
+												
+						
+						<li class="dropdown active" id="menu4">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								Teams
+      						<b class="caret"></b>
+    						</a>
+    						<ul class="dropdown-menu">
+    							<li><a href="/team/">List</a></li>
+      						<li><a href="/team/add/">Add</a></li>
+			      	
+					    	</ul>	
+						</li>
+						{% endif %}
+              {% endblock navbar %}
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    {% endblock nav %}
+
+
+{% block content %}
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="hero-unit">
+	<div class="row-fluid">
+	<div class="span4">
+	<p>Add New Team</p>
+<form method="POST" action="">
+	{% csrf_token %}
+
+	<div class="fieldWrapper">
+    	<label style="display:block" for="id_team">{{form.lead.label_tag}} </label>
+			 <div class="fieldBox">
+		   	<div class="selectContainer">
+			   	{{ form.lead }} 
+		   	</div>
+			</div>
+	</div> <br>
+	<div class="fieldWrapper">
+  		<div class="teamname" >
+   		 <label style="display:block" for="id_teamname">{{form.teamname.label_tag}} </label>
+    		<div class="fieldBox">
+	      	<div fest:tooltip="Select Date">{{ form.teamname }}</div>
+   	 	</div>
+  		</div>
+  	</div>
+  
+
+  <input value = "submit" type="submit"/>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}
+

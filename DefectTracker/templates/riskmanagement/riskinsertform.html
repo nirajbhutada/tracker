@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{%block title %}
+<title>
+	Add Risk 		    
+</title>
+{% endblock %}
+
+{% block extracss %}
+	<link href="/site_media/css/riskmanagement.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet/less" src="/site_media/twitter_bootstrap/datepicker/less/datepicker.less" />
+	<link href="/site_media/twitter_bootstrap/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+	<script src="/site_media/twitter_bootstrap/datepicker/js/bootstrap-datepicker.js"></script>
+	
+	<script type="text/javascript" >
+		$('#datepicker').datepicker();
+	</script>
+{% endblock extracss %}
+
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="hero-unit">
+			<div class="row-fluid">
+				<div class="span8 form">
+					<p>Add Risk Identified</p>
+					<form method="POST" action="">
+						{% csrf_token %}
+						
+							<div class="span2">{{form.team.label_tag}}</div>
+							<div>{{ form.team }} </div>
+					 	
+						 	<div class="span2">{{form.identificationdate.label_tag}} </div>
+							<div class="input-append date" id="datepicker" data-date="2012-02-12" data-date-format="yyyy-mm-dd">
+	    							<input name="identificationdate" id="id_identificationdate"  type="text" value="2012-02-12" />
+	    							<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+	   					<br>
+				  		
+				  			<div class="span2">{{form.riskdetail.label_tag}} </div>
+	    					<div> {{ form.riskdetail }}</div>  					
+	  					
+	  					
+	   	 				<div class="span2">{{form.impact.label_tag}} </div>
+	    					<div>{{ form.impact }}</div>
+	   	 				
+	  						<div class="span2">{{form.category.label_tag}} </div>
+	    					<div>{{ form.category }}</div>
+	   	 				
+	  						<div class="span2">{{form.mitigationplan.label_tag}} </div>
+	    					<div>{{ form.mitigationplan }}</div>
+	  						
+	  						<div class="span2">{{form.contigencyplan.label_tag}} </div>
+	      				<div>{{ form.contigencyplan }}</div>
+
+						  <div align="center"> 
+							  	<input class="btn btn-primary btn-large" align="center" value = "submit" type="submit"/>
+	   				  </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}
+

@@ -1,0 +1,61 @@
+<table id="effortlist" cellpadding="0" cellspacing="0" border="0" class="display" >
+	<thead>
+		<tr>
+			<td>User</td>
+			<td>Team</td>
+			<td>Release</td>
+			<td>Release Phase</td>
+			<td>Date</td>
+			<td>Test Cases Planned </td>
+			<td>Test Cases Executed </td>
+			<td>Test Cases Developed </td>
+			<td>Leaves</td>
+			<td>Action</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% for e in effortlist %}
+		<tr>
+			<td >{{e.user_profile}}</td>
+			<td >{{e.team.teamname}}</td>
+			<td >{{e.release.relname}}</td>
+			<td >{{e.release_phase.release_phase}}</td>
+			<td >{{e.effort_date|date:"d-m-y" }}</td>
+			<td >{{e.testcasesplannedno}}</td>
+			<td >{{e.testcasesexecutedno}}</td>
+			<td >{{e.tcdevelopmenthr}}</td>			
+			<td >{{e.leaves}}</td>
+			<td >
+				<a class="btn btn-primary btn-small" href="/report/add/{{e.id}}" >Edit </a>
+				{% if managerflag %}
+					<a class="btn btn-primary btn-small" href="/report/delete/{{e.id}}" >Delete </a>
+				{% endif %}
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<script type="text/javascript" >
+		$('#date_input_start').datepicker({
+    	format: 'yyyy-mm-dd'
+		}).on('changeDate', function (ev, date) {
+			var selected_var_url = $("input.namesearch").parents("form").serialize() + "&s=1";
+			target_url = submit_url + selected_var_url;
+			var form_url = $('#submmisions_form').attr('action');
+			$('#submmisions_form').attr('action', target_url);
+			var form_url_1 = $('#submmisions_form').attr('action');
+		 	$('#submmisions_form').submit();
+			});
+		$('#date_input_end').datepicker({
+    	format: 'yyyy-mm-dd'
+		}).on('changeDate', function (ev, date) {
+			var selected_var_url = $("input.namesearch").parents("form").serialize() + "&s=1";
+			target_url = submit_url + selected_var_url;
+			var form_url = $('#submmisions_form').attr('action');
+			$('#submmisions_form').attr('action', target_url);
+			var form_url_1 = $('#submmisions_form').attr('action');
+		 	$('#submmisions_form').submit();
+		});
+</script>
+

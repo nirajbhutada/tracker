@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{%block title %}
+<title>
+	 Log In 		    
+</title>
+{% endblock %}
+{% block nav %}
+{% block navbar %}
+		
+{% endblock navbar %}
+{% endblock nav %}
+
+
+{%block extracss %}
+<link href="/site_media/css/loginform.css" rel="stylesheet" type="text/css" />
+{% endblock extracss %}
+
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="hero-unit">
+ 	 		<div class="row-fluid">
+	   		<div class="span4">
+					{% if form.errors %}	
+						{% for field in form %}
+							{% if field.errors %}
+								{{ field.label_tag }}: {{ field.errors }}
+							{% endif %}
+						{% endfor %}
+						{{ form.non_field_errors }}
+					{% endif %}
+					<form action="{%url user_login %}" method="POST" id="loginform" >
+						{% csrf_token %}
+	 						{% for field in form %}
+	 							{{field.label}}{{field}} <br/><br/> 
+	 							{% if form.errors %}	
+									{{ field.label_tag }}: {{ field.errors }}
+								{% endif %} 			
+							{% endfor %}
+						<input type="submit" value="login" id="submit" name="login"></input>
+					</form>
+				</div>  <!-- span4 -->
+			</div>
+		</div>
+	</div>
+</div>
+		
+{% endblock content %}
