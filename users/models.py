@@ -6,7 +6,7 @@ class Employees(models.Model):
     user = models.ForeignKey(User, related_name="emp_user")
     lastname = models.CharField(max_length=60, blank=True)
     firstname = models.CharField(max_length=30, blank=True)
-    tshirtsize = models.CharField(max_length=75, blank=True)
+    tshirtsize = models.CharField(max_length=60, blank=True)
     birthdate = models.DateField(null=True, blank=True)
     hiredate = models.DateField(null=True, blank=True)
     emergencycontactno = models.CharField(max_length=72, blank=True)
